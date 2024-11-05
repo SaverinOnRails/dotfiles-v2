@@ -1,0 +1,7 @@
+Pictures/wallpapers/*.gif
+.local/state/*
+.local/share/Trash/*
+Pictures/wallpapers/preconvert
+Pictures/Screenshots/*
+
+.config/hypr/wallpaper_effects/*

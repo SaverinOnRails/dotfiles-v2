@@ -1,0 +1,30 @@
+{
+ 
+"include": "~/.config/waybar/modules",
+"layer": "top",
+//"mode": "dock",
+"exclusive": true,
+"passthrough": false,
+"position": "top",
+"spacing": 4,
+"fixed-center": true,
+"ipc": true,
+
+
+//"margin-top": 0,
+//"margin-bottom": 0,
+//"margin-left": 0,
+//"margin-right": 0,
+	"modules-center": ["hyprland/submap","hyprland/window"], 
+  "modules-right":[
+  "tray",
+   "battery",
+    "clock",
+    "hyprland/submap",
+    
+  ],
+  "modules-left":[
+    "wlr/taskbar",
+    "custom/cava_mviz"
+  ]
+}
