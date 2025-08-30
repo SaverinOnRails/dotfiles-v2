@@ -8,7 +8,7 @@ normal="block"
 select="underline"
 
 [editor]
-color-modes=false
+color-modes=true
 # line-number="relative"
 gutters = ["diagnostics", "spacer", "diff"]
 shell=["nu", "--stdin","-c"]

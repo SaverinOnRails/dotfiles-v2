@@ -3,13 +3,13 @@
   :stacking "bg"  
   :monitor 0
   :geometry (geometry :anchor "top right" :height "100px" :x "20")
-  (box :class "main" :orientation "vertical" :space-evenly false :spacing -40
+  (box :class "main" :orientation "vertical" :space-evenly false :spacing -20
     (label :text hour :class "bigtext")
     (label :text minute :class "bigtext")
     (box :orientation "vertical" :space-evenly false :spacing 20
-      (label :text "Power: ${round(EWW_BATTERY.total_avg, 0)}%" :class "mediumtext" )
-      (label :text "Network: ${net}" :class "mediumtext" )
-      ; (label :text "Music: ${music_title} ${music_artist}" :class "mediumtext" :truncate true :halign "start")
+      (label :text " Power: ${round(EWW_BATTERY.total_avg, 0)}%" :class "mediumtext" )
+      (label :text " Network: ${net}" :class "mediumtext" )
+      (label :text "${music_title} - ${music_artist}" :class "smalltext" :wrap true )
     )
   )
 )

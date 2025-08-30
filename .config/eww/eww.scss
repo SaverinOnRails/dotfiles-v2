@@ -1,9 +1,11 @@
 @import "colors-eww.scss";
 .desktop {
+  font-family: Jetbrains Mono;
+  font-style: Italic;
+  font-weight: Bold;
   background:transparent;
   label {
-    color:$foreground;
-    
+    color:$source;
   }
   .bigtext{
     font-size: 190px;

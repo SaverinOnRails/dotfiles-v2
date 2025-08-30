@@ -113,16 +113,16 @@
 
 [palette]
 # interface
-source = "#2147c5"
-primary = "#2147c5"
-secondary = "#b9c4fb"
-foreground = "#e2e1ec"
-tertiary = "#ffb59a"
+source = "#0a090e"
+primary = "#0a090e"
+secondary = "#c9c5c8"
+foreground = "#e5e1e2"
+tertiary = "#ccc6b8"
 background  = "#000000" 
-theme_background = "#12131a"
+theme_background = "#141314"
 
-menu        = "#12131a"
-selection   = "#ffb59a"
+menu        = "#141314"
+selection   = "#ccc6b8"
 
 # syntax
 warning     = "#FEBA17"

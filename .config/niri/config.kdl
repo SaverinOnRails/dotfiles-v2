@@ -107,7 +107,7 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 5
+    gaps 25
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -208,7 +208,7 @@ layout {
     // You can enable drop shadows for windows.
     shadow {
         // Uncomment the next line to enable shadows.
-        // on
+        on
 
         // By default, the shadow draws only around its window, and not behind it.
         // Uncomment this setting to make the shadow draw behind its window.
@@ -233,7 +233,7 @@ layout {
         softness 30
 
         // Spread expands the shadow.
-        spread 5
+        spread 10
 
         // Offset moves the shadow relative to the window.
         offset x=0 y=5
@@ -262,7 +262,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
-spawn-at-startup "yin"
+// spawn-at-startup "yin"
 spawn-at-startup "eww" "open" "desktop"
 spawn-at-startup "/home/noble/restore-yin.sh"
 //swww for overview
@@ -640,10 +640,10 @@ window-rule {
     match app-id="Spotify"
     opacity 0.95
 }
-// window-rule {
-//     match app-id="kitty"
-//     default-column-width { proportion 0.75; }
-// }
+window-rule {
+    match app-id="kitty"
+    default-column-width { proportion 0.75; }
+}
 // window-rule {
 //     match app-id="firefox"
 //     default-column-width { proportion 0.75; }
