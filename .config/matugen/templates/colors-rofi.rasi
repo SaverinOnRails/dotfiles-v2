@@ -1,0 +1,33 @@
+* {
+active-background: black;
+main-bg:            black;
+main-bg-transparent: {{colors.background.default.rgba | set_alpha: 0.9}};
+main-fg:            {{colors.on_surface.default.hex}};
+select-bg:          {{colors.on_primary_container.dark.hex}};
+select-fg:          {{colors.inverse_surface.light.hex}};
+active-foreground: {{colors.on_surface.default.hex}};
+normal-background: black;
+normal-foreground: {{colors.on_surface.default.hex}};
+urgent-background: {{colors.error.default.hex}};
+urgent-foreground: {{colors.on_surface.default.hex}};
+
+alternate-active-background: black;
+alternate-active-foreground: {{colors.on_surface.default.hex}};
+alternate-normal-background: {{colors.secondary_container.default.hex}};
+alternate-normal-foreground: {{colors.on_surface.default.hex}};
+alternate-urgent-background: {{colors.error_container.default.hex}};
+alternate-urgent-foreground: {{colors.on_surface.default.hex}};
+
+selected-active-background: {{colors.on_primary_container.default.hex}};
+selected-active-foreground: {{colors.on_surface.default.hex}};
+selected-normal-background: {{colors.on_secondary.default.hex}};
+selected-normal-foreground: {{colors.on_surface.default.hex}};
+selected-urgent-background: {{colors.error.default.hex}};
+selected-urgent-foreground: {{colors.on_surface.default.hex}};
+
+background-color: black;
+background: rgba(0,0,0,0.7);
+foreground: {{colors.tertiary.default.hex}};
+border-color: {{colors.on_primary_container.default.hex}};
+}
+

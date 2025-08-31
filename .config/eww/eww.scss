@@ -1,0 +1,16 @@
+@import "colors-eww.scss";
+.desktop {
+  font-family: Jetbrains Mono;
+  font-style: Italic;
+  font-weight: Bold;
+  background:transparent;
+  label {
+    color:$source;
+  }
+  .bigtext{
+    font-size: 190px;
+  }
+  .mediumtext {
+    font-size:20px
+  }
+}

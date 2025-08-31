@@ -1,0 +1,91 @@
+
+[language-server.angular]
+command = "ngserver"
+args = [
+  "--stdio",
+  "--tsProbeLocations",
+  "/home/noble/.local/lib/node_modules",
+  "--ngProbeLocations",
+  "/home/noble/.local/lib/node_modules",
+]
+[language-server.zls]
+config.enable_argument_placeholders=false
+
+
+[language-server]
+yuckls = {command="yuckls"}
+ols = {command = "/home/noble/Documents/ols/ols"}
+avalonials = {command="avalonia-ls"}
+csharp_ls= {command="/home/noble/.local/share/nvim/mason/bin/csharp-ls"}
+omnisharp={"command"="omnisharp" , timeout=200000}
+qmlls={"command"="/usr/lib/qt6/bin/qmlls", timeout=20000}
+
+[[language]]
+name="yuck"
+scope="source.yuck"
+injection-regex="yuck"
+file-types=["yuck"]
+language-servers = ["yuckls"]
+
+[[language]]
+name="xml"
+scope="source.axaml"
+injection-regex="axaml"
+file-types=["axaml"]
+language-servers=["avalonials"]
+grammar="xml"
+auto-format=false
+formatter={command="xaml-styler",args=["--write-to-stdout" ,"--take-pipe"]}
+
+[[language]]
+name = "c-sharp"
+scope = "source.csharp"
+injection-regex = "c-?sharp"
+file-types = ["cs", "csx", "cake"]
+roots = ["sln", "csproj"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = "\t" }
+language-servers = ["omnisharp"]
+
+
+[[language]]
+name = "odin"
+auto-format = false
+scope = "source.odin"
+file-types = ["odin"]
+roots = ["ols.json", "main.odin"]
+language-servers = [ "ols" ]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = "\t" }
+formatter = { command = "odinfmt", args = [ "-stdin" ] }
+
+
+[[language]]
+name = "nu"
+scope = "source.nu"
+injection-regex = "nu"
+file-types = ["nu", "nuon"]
+shebangs = ["nu"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-servers = [ "nu-lsp" ]
+
+[[language]]
+name ="html"
+roots = ["angular.json"]
+language-servers = ["angular","vscode-html-language-server"]
+
+
+[[language]]
+name = "zig"
+scope = "source.zig"
+injection-regex = "zig"
+file-types = ["zig", "zon"]
+roots = ["build.zig"]
+auto-format = false
+comment-tokens = ["//", "///", "//!"]
+language-servers = [ "zls" ]
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "zig" , args = ["fmt", "--stdin"] }

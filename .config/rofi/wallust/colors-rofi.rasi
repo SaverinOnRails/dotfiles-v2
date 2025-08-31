@@ -1,0 +1,33 @@
+* {
+active-background: black;
+main-bg:            black;
+main-bg-transparent: rgba(22, 19, 13, 0.9);
+main-fg:            #e9e1d7;
+select-bg:          #4c3900;
+select-fg:          #343029;
+active-foreground: #e9e1d7;
+normal-background: black;
+normal-foreground: #e9e1d7;
+urgent-background: #ffb4ab;
+urgent-foreground: #e9e1d7;
+
+alternate-active-background: black;
+alternate-active-foreground: #e9e1d7;
+alternate-normal-background: #524524;
+alternate-normal-foreground: #e9e1d7;
+alternate-urgent-background: #93000a;
+alternate-urgent-foreground: #e9e1d7;
+
+selected-active-background: #4c3900;
+selected-active-foreground: #e9e1d7;
+selected-normal-background: #3b2f10;
+selected-normal-foreground: #e9e1d7;
+selected-urgent-background: #ffb4ab;
+selected-urgent-foreground: #e9e1d7;
+
+background-color: black;
+background: rgba(0,0,0,0.7);
+foreground: #dfecff;
+border-color: #4c3900;
+}
+
