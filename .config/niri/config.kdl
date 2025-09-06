@@ -268,6 +268,7 @@ spawn-at-startup "/home/noble/restore-yin.sh"
 //swww for overview
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "mako"
+spawn-at-startup "systemctl" "--user" "start" "hyprpolkitagent"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -350,6 +351,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "rofi" "-show" "drun"; }
     Mod+S hotkey-overlay-title="Run an Application: fuzzel" { spawn "rofi" "-show" "window"; }
+    Mod+N { spawn "rofi-connman"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
 
@@ -630,6 +632,11 @@ layer-rule {
 
 window-rule {
     match app-id="swengine.desktop"
+    open-floating true
+}
+
+window-rule {
+    match title="File Operation Progress"
     open-floating true
 }
 window-rule {
