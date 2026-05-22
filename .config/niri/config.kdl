@@ -71,35 +71,12 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
-
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
-
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
 
-    // Transform allows to rotate the output counter-clockwise, valid values are:
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "90"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
-    position x=1280 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -107,7 +84,7 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 25
+    gaps 5
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -265,6 +242,7 @@ layout {
 // spawn-at-startup "yin"
 spawn-at-startup "eww" "open" "desktop"
 spawn-at-startup "/home/noble/restore-yin.sh"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 //swww for overview
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "mako"
@@ -349,8 +327,10 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "rofi" "-show" "drun"; }
-    Mod+S hotkey-overlay-title="Run an Application: fuzzel" { spawn "rofi" "-show" "window"; }
+    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+S hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+    Mod+A hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+
     Mod+N { spawn "rofi-connman"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
@@ -393,15 +373,15 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86audioraisevolume allow-when-locked=true { spawn "/home/noble/.config/hypr/scripts/Volume.sh" "inc"; }
-    XF86audiolowervolume allow-when-locked=true { spawn  "/home/noble/.config/hypr/scripts/Volume.sh" "dec"; }
-    xf86AudioPlay  { spawn  "/home/noble/.config/hypr/scripts/MediaCtrl.sh"  "pause"; }
-    xf86audioprev { spawn  "/home/noble/.config/hypr/scripts/MediaCtrl.sh"  "prev" ;}
-    xf86audionext { spawn  "/home/noble/.config/hypr/scripts/MediaCtrl.sh"  "next" ;}
+    XF86AudioRaiseVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    xf86AudioPlay  { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "playPause"; }
+    xf86audioprev { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "previous"; }
+    xf86audionext { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "next"; }
     Super+T {spawn "thunar";}
     Mod+Q { close-window; }
-    xf86monbrightnessdown { spawn  "/home/noble/.config/hypr/scripts/Brightness.sh" "dec";}
-    xf86monbrightnessup { spawn  "/home/noble/.config/hypr/scripts/Brightness.sh" "inc" ;}
+    XF86MonBrightnessUp { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
     Super+Shift+P { spawn  "/home/noble/.config/hypr/scripts/choose_accent.sh" ;}
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }

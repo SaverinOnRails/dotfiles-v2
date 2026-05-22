@@ -24,6 +24,7 @@ $env.config.color_config.shape_custom = "red"
 
 alias ls = ls -a
 alias xplore = explore 
+alias hx = helix
 alias yeet = yay -R
 alias yain = yay -S 
 alias gco = git checkout
