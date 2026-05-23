@@ -1,0 +1,27 @@
+{
+  "activeBackend": "mpvpaper",
+  "automationMode": "random",
+  "automationTime": 300,
+  "fillMode": "fit",
+  "mpvSocket": "/tmp/mpv-socket",
+  "profile": "default",
+  "volume": 1,
+  "wallpapersFolder": "/home/noble/Pictures/Wallpapers",
+  "thumbCacheReady": true,
+  "eDP-1": {
+    "volume": 0,
+    "currentWallpaper": "/home/noble/Pictures/Wallpapers/MW04vRNAe3-DarkNaruto-BlueEyesLiveWallpaper.mp4",
+    "automation": false,
+    "automationMode": "random",
+    "automationTime": 300,
+    "hardwareAcceleration": false,
+    "profile": "default",
+    "fillMode": "fit",
+    "orientation": 0,
+    "isPlaying": false,
+    "noctaliaWallpaper": "/home/noble/Pictures/Wallpapers/wallhaven-6l2rgq.jpg"
+  },
+  "enabled": false,
+  "monitorSpecific": false,
+  "automationCustomTime": []
+}

@@ -16,7 +16,6 @@ config.enable_argument_placeholders=false
 yuckls = {command="yuckls"}
 ols = {command = "/home/noble/Documents/ols/ols"}
 avalonials = {command="avalonia-ls"}
-csharp_ls= {command="/home/noble/.local/share/nvim/mason/bin/csharp-ls"}
 omnisharp={"command"="omnisharp" , timeout=200000}
 qmlls={"command"="/usr/lib/qt6/bin/qmlls", timeout=20000}
 
@@ -46,7 +45,7 @@ roots = ["sln", "csproj"]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
 indent = { tab-width = 4, unit = "\t" }
-language-servers = ["omnisharp"]
+language-servers = ["csharp-ls"]
 
 
 [[language]]

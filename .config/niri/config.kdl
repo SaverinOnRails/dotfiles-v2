@@ -391,7 +391,7 @@ binds {
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
-
+    Mod+B { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "bar" "toggle"; }
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
@@ -512,7 +512,7 @@ binds {
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
-    Alt+Tab { focus-window-previous; }
+    // Alt+Tab { focus-window-previous; }
     Mod+Tab { focus-workspace-previous; }
 
     // The following binds move the focused window in and out of a column.
@@ -643,4 +643,13 @@ window-rule {
 window-rule {
     match app-id="Wff"
     open-floating true
+}
+recent-windows {
+  previews {
+        max-height 180
+        max-scale 0.5
+    }
+        binds {
+        Alt+Tab { next-window; }
+    }
 }
