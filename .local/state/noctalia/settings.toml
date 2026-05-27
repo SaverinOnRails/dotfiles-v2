@@ -1,0 +1,74 @@
+[audio]
+enable_sounds = true
+
+[bar.default]
+background_opacity = 0.88999998010694981
+capsule = true
+center = [ "taskbar" ]
+end = [ "tray", "network", "battery", "volume", "brightness" ]
+font_weight = 400
+margin_edge = 5.0
+margin_ends = 5.0
+padding = 0
+position = "left"
+scale = 1.300000011920929
+start = [ "clock", "sysmon" ]
+thickness = 41
+widget_spacing = 11
+
+[osd]
+position = "bottom_right"
+
+[shell]
+font_family = "JetBrains Mono"
+polkit_agent = true
+settings_show_advanced = true
+ui_scale = 1.2500000111758709
+
+    [shell.animation]
+    speed = 0.85000001266598701
+
+    [shell.panel]
+    transparency_mode = "glass"
+
+[theme]
+builtin = "Ayu"
+community_palette = "GitHub Dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-fruit-salad"
+
+[wallpaper]
+directory = "/home/noble/Pictures/Wallpapers"
+
+    [wallpaper.default]
+    path = "/home/noble/Pictures/Wallpapers/wallhaven-xep6po.png"
+
+    [wallpaper.last]
+    path = "/home/noble/Pictures/Wallpapers/wallhaven-xep6po.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/noble/Pictures/Wallpapers/wallhaven-xep6po.png"
+
+[widget.battery]
+show_label = false
+
+[widget.brightness]
+show_label = false
+
+[widget.clock]
+format = "{:%H:%M - %d:%m}"
+
+[widget.network]
+show_label = false
+
+[widget.sysmon]
+show_label = false
+stat = "ram_used"
+
+[widget.taskbar]
+group_by_workspace = true
+hide_empty_workspaces = true
+only_active_workspace = true
+
+[widget.volume]
+show_label = false

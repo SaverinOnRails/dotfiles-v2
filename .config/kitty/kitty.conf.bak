@@ -1,5 +1,5 @@
 font_family Jetbrains Mono SemiBold Italic
-font_size 		12
+font_size 		11.5
 cursor_trail 1
 background_opacity 0.9
 
@@ -25,6 +25,6 @@ window_padding_width 15
 
 
 # BEGIN_KITTY_THEME
-# Dainty Dark
+# Vibrant Ink
 include current-theme.conf
 # END_KITTY_THEME
