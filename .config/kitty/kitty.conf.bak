@@ -1,7 +1,7 @@
 font_family Jetbrains Mono SemiBold Italic
 font_size 		11.5
 cursor_trail 1
-background_opacity 0.9
+background_opacity 1
 
 confirm_os_window_close 0
 
@@ -19,12 +19,12 @@ wheel_scroll_min_lines 1
 
 enable_audio_bell no
 
-window_padding_width 15
+window_padding_width 5
 
 # include wallust/kitty.conf
 
 
 # BEGIN_KITTY_THEME
-# Vibrant Ink
+# Black Metal
 include current-theme.conf
 # END_KITTY_THEME

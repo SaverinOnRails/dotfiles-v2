@@ -1,0 +1,9 @@
+id = "Saverin/video-wallpapers"
+name = "Video Wallpapers"
+version = "1.0.0"
+min_noctalia = "5.0.0"
+author = "Saverin"
+license = "MIT"
+tags = ["wallpaper", "demo"]
+icon = "puzzle"
+description = "Simple video wallpapers for Noctalia V5."

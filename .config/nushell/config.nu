@@ -6,9 +6,10 @@ $env.config.show_banner = false
 $env.config.buffer_editor = "helix"
 $env.PKG_CONFIG_PATH = "/usr/lib/pkgconfig/"
 $env.npm_config_prefix = $"($env.HOME)/.local"
-$env.config.edit_mode = "vi"
+# $env.config.edit_mode = "vi"
 alias btm = btm --basic --process_memory_as_value
-$env.PATH ++= ["~/.spicetify","~/.local/bin","/var/lib/snapd/snap/bin","/var/lib/snapd/desktop", "/home/noble/.dotnet/tools" , "/home/noble/.local/share/pipx/venvs"]
+$env.PATH ++= ["~/.spicetify","~/.local/bin","/var/lib/snapd/snap/bin","/var/lib/snapd/desktop", "/home/noble/.dotnet/tools" , "/home/noble/.local/share/pipx/venvs", "/home/noble/Android/Sdk/build-tools/36.0.0"]
+$env.ANDROID_HOME = "/home/noble/Android/Sdk"
 # $env.config.table.mode = "ascii_rounded"
 $env.wap = $"($env.HOME)/Pictures/wallpapers"
 $env.POSH_THEME = "/home/noble/.config/nushell/themes/powgerline.json"
@@ -63,3 +64,7 @@ def dotnet_new_list [] {
 }
 alias nirictl = niri msg
 
+
+def debug [path:string] {
+  kitty --class "floating-kitty"
+}

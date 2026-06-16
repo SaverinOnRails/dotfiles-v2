@@ -64,6 +64,11 @@ input {
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
 }
+gestures {
+    hot-corners {
+        off
+    }
+}
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -92,9 +97,9 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "on-overflow"
+    center-focused-column "never"
 
-    // always-center-single-column
+    always-center-single-column
 
    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -102,7 +107,7 @@ layout {
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
         proportion 0.5
-        proportion 1.0
+        proportion 0.97
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }
@@ -113,7 +118,7 @@ layout {
        proportion 1.0
     }
 
-    background-color "transparent"
+    // background-color "transparent"
     // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
@@ -186,7 +191,6 @@ layout {
     shadow {
         // Uncomment the next line to enable shadows.
         // on
-
         // By default, the shadow draws only around its window, and not behind it.
         // Uncomment this setting to make the shadow draw behind its window.
         //
@@ -232,6 +236,11 @@ layout {
     }
 }
 
+layer-rule {
+    background-effect {
+        // blur false
+    }
+}
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -243,11 +252,11 @@ layout {
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "noctalia"
 //swww for overview
-spawn-at-startup "xwayland-satellite"
+// spawn-at-startup "xwayland-satellite"
 // spawn-at-startup "xrdb ~/.Xresources" //just so my avalonia apps work
 
 // spawn-at-startup "mako"
-spawn-at-startup "systemctl" "--user" "start" "hyprpolkitagent"
+// spawn-at-startup "systemctl" "--user" "start" "hyprpolkitagent"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -290,6 +299,15 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    open-floating true
+    opacity 0.9
+}
+window-rule {
+    match app-id="MyPitch.Desktop"
+    opacity 0.99
+}
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
@@ -310,6 +328,13 @@ window-rule {
     clip-to-geometry true
 }
 
+
+cursor {
+    xcursor-theme "Fallout2"
+    xcursor-size 30
+
+}
+
 //i'll just leave my scrips in hypr
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -328,8 +353,10 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty"; }
+    Mod+Shift+Return {spawn-sh "kitty --class 'floating-kitty'";}
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Shift+D {spawn-sh "noctalia msg desktop-widgets-toggle-edit";}
     // Mod+S hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
     Mod+S hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "noctalia msg settings-toggle"; }
     // Mod+A hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
@@ -388,21 +415,23 @@ binds {
     xf86audioprev { spawn "noctalia" "msg" "media" "previous"; }
     xf86audionext { spawn "noctalia" "msg" "media" "next"; }
     Super+T {spawn "thunar";}
-    Mod+Q { close-window; }
+    Mod+Shift+Q { close-window; }
     // XF86MonBrightnessUp { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
     // XF86MonBrightnessDown { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
     XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up"; }
     XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
     Super+Shift+P { spawn  "/home/noble/.config/hypr/scripts/choose_accent.sh" ;}
     Mod+Left  { focus-column-left; }
+    Mod+Q{ focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
+    Mod+E{ focus-column-right; }
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
-    Mod+B { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "bar" "toggle"; }
+    Mod+B { spawn-sh "noctalia msg bar-toggle default"; }
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
@@ -603,11 +632,10 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+    Ctrl+Alt+Delete { spawn-sh "noctalia msg panel-toggle session"; }
 
 }
 environment {
-    DISPLAY ":0"
     QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME  "qt6ct"
 }
@@ -617,8 +645,15 @@ hotkey-overlay {
 } 
 
 layer-rule {
-   match namespace="wallpaper"
-   place-within-backdrop true
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
+window-rule {
+  match app-id="dev.noctalia.Noctalia.Settings"
+  open-floating true
+  default-column-width { fixed 700; }
+  default-window-height { fixed 700; }
 }
 
 window-rule {
@@ -635,14 +670,15 @@ window-rule {
     open-floating true
 }
 window-rule {
-    match app-id="Spotify"
-    opacity 0.95
+    draw-border-with-background false
 }
-
-// window-rule {
-//     match app-id="kitty"
-//     default-column-width { proportion 0.75; }
-// }
+window-rule {
+    match app-id="floating-kitty"
+    open-floating true
+     default-column-width { fixed 700; }
+    default-window-height { fixed 700; }
+    // default-floating-position x=0 y=0 relative-to="top-right"
+}
 // window-rule {
 //     match app-id="firefox"
 //     default-column-width { proportion 0.75; }
@@ -665,3 +701,5 @@ recent-windows {
         Alt+Tab { next-window; }
     }
 }
+
+include "noctalia.kdl"

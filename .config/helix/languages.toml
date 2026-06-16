@@ -18,6 +18,7 @@ ols = {command = "/home/noble/Documents/ols/ols"}
 avalonials = {command="avalonia-ls"}
 omnisharp={"command"="omnisharp" , timeout=200000}
 qmlls={"command"="/usr/lib/qt6/bin/qmlls", timeout=20000}
+roslyn-language-server = { command = "roslyn-language-server", args = ["--stdio", "--autoLoadProjects"] }
 
 [[language]]
 name="yuck"
@@ -45,7 +46,7 @@ roots = ["sln", "csproj"]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
 indent = { tab-width = 4, unit = "\t" }
-language-servers = ["csharp-ls"]
+language-servers = ["omnisharp"]
 
 
 [[language]]
@@ -88,3 +89,4 @@ comment-tokens = ["//", "///", "//!"]
 language-servers = [ "zls" ]
 indent = { tab-width = 4, unit = "    " }
 formatter = { command = "zig" , args = ["fmt", "--stdin"] }
+

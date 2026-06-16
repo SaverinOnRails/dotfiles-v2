@@ -1,4 +1,4 @@
-theme="ashen"
+theme="noctalia"
 [editor.soft-wrap]
 enable=true
 
@@ -7,10 +7,14 @@ insert="bar"
 normal="block"
 select="underline"
 
+[editor.file-picker]
+hidden = false
+
 [editor]
-color-modes=true
+color-modes=false
+mouse=true
 # line-number="relative"
-# gutters = ["diagnostics", "spacer", "diff"]
+gutters = ["diagnostics", "spacer", "diff"]
 shell=["nu", "--stdin","-c"]
 
 [editor.statusline]

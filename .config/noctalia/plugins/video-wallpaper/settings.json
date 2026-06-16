@@ -1,28 +1,11 @@
 {
-  "activeBackend": "mpvpaper",
+  "activeBackend": "qt6-multimedia",
   "automationMode": "random",
   "automationTime": 300,
   "fillMode": "fit",
   "mpvSocket": "/tmp/mpv-socket",
   "profile": "default",
   "volume": 1,
-  "wallpapersFolder": "/home/noble/Pictures/Wallpapers",
-  "thumbCacheReady": true,
-  "eDP-1": {
-    "volume": 0,
-    "currentWallpaper": "/home/noble/Pictures/Wallpapers/meteor-shower.3840x2160.mp4",
-    "automation": false,
-    "automationMode": "random",
-    "automationTime": 300,
-    "hardwareAcceleration": false,
-    "profile": "default",
-    "fillMode": "fit",
-    "orientation": 0,
-    "isPlaying": true,
-    "noctaliaWallpaper": "/home/noble/Pictures/Wallpapers/wallhaven_xepp7d.jpg"
-  },
-  "enabled": false,
-  "monitorSpecific": false,
-  "automationCustomTime": []
+  "wallpapersFolder": "~/Pictures/Wallpapers",
+  "thumbCacheReady": true
 }
-
