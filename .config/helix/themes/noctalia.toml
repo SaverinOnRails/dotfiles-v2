@@ -28,8 +28,7 @@
 
 "label" = "secondary"
 
-"punctuation" = "outlineVariant"
-"punctuation.special" = "outline"
+"punctuation" = "outline"
 
 "keyword" = { fg = "primary", modifiers = ["bold"] }
 "keyword.control.conditional" = { fg = "tertiary", modifiers = ["italic", "bold"] }
@@ -96,7 +95,7 @@
 "ui.menu" = { fg = "onSurface", bg = "surfaceContainer" }
 "ui.menu.selected" = { fg = "onPrimary", bg = "primary", modifiers = ["bold"] }
 
-"ui.selection" = { bg = "primary", fg = "onPrimary" }
+"ui.selection" = { bg = "primaryContainer", fg = "onPrimaryContainer" }
 
 "ui.highlight" = { bg = "primaryContainer", modifiers = ["bold"] }
 
@@ -124,39 +123,39 @@ plus = "#a6e3a1"
 delta = "#89b4fa"
 
 # Template colors
-primary = "#c4a82e"
-surfaceTint = "#c4a82e"
-onPrimary = "#0e1015"
-primaryContainer = "#443909"
-onPrimaryContainer = "#f5efd6"
+primary = "#c4693d"
+surfaceTint = "#c4693d"
+onPrimary = "#121212"
+primaryContainer = "#421e0c"
+onPrimaryContainer = "#f3e1d8"
 
-secondary = "#d14358"
-onSecondary = "#0e1015"
-secondaryContainer = "#560c17"
-onSecondaryContainer = "#f5d6db"
+secondary = "#4a8b8b"
+onSecondary = "#121212"
+secondaryContainer = "#153838"
+onSecondaryContainer = "#deeded"
 
-tertiary = "#00a66c"
-onTertiary = "#0e1015"
-tertiaryContainer = "#004d32"
-onTertiaryContainer = "#ccffed"
+tertiary = "#b14242"
+onTertiary = "#121212"
+tertiaryContainer = "#3d0f0f"
+onTertiaryContainer = "#f1dada"
 
-error = "#b32d2d"
-onError = "#0e1015"
-errorContainer = "#430a0a"
+error = "#c53030"
+onError = "#121212"
+errorContainer = "#430909"
 onErrorContainer = "#f5d6d6"
 
-background = "#0c1017"
-onBackground = "#5c8ac4"
-surface = "#0c1017"
-onSurface = "#5c8ac4"
-surfaceVariant = "#11151d"
-onSurfaceVariant = "#9b6bc1"
+background = "#121212"
+onBackground = "#b4b4b4"
+surface = "#121212"
+onSurface = "#b4b4b4"
+surfaceVariant = "#1d1d1d"
+onSurfaceVariant = "#d5d5d5"
 
-outline = "#45a0d6"
-outlineVariant = "#2578a9"
+outline = "#737373"
+outlineVariant = "#4d4d4d"
 
-surfaceContainerLowest = "#0d1118"
-surfaceContainerLow = "#0e121a"
-surfaceContainer = "#11151d"
-surfaceContainerHigh = "#191e2a"
-surfaceContainerHighest = "#202837"
+surfaceContainerLowest = "#141414"
+surfaceContainerLow = "#171717"
+surfaceContainer = "#1d1d1d"
+surfaceContainerHigh = "#272727"
+surfaceContainerHighest = "#313131"

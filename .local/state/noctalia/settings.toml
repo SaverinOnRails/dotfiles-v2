@@ -1,25 +1,43 @@
+config_version = 2
+
+[accessibility]
+ui_scale = 1.2500000111758709
+
 [audio]
+enable_overdrive = true
 enable_sounds = true
 sound_volume = 0.99999997764825821
 
 [backdrop]
-blur_intensity = 0.7799999825656414
+blur_intensity = 0.069999998435378075
 enabled = true
+tint_intensity = 0.71999998390674591
 
 [bar.default]
-capsule = true
+background_opacity = 0.9499999787658453
 capsule_opacity = 0.5599999874830246
-end = [ "audio_visualizer", "tray", "network", "battery" ]
+center = [ "taskbar" ]
+end = [ "tray", "network", "battery", "date", "group:g1" ]
 font_weight = 380
-margin_edge = 5
-margin_ends = 5
+margin_edge = 0
+margin_ends = 0
 padding = 0
-position = "right"
-radius = 14
+position = "bottom"
+radius = 0
 scale = 1.300000011920929
-start = [ "workspaces", "sysmon" ]
-thickness = 37
+start = [ "workspaces" ]
 widget_spacing = 5
+
+    [[bar.default.capsule_group]]
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "yinpaper", "wallhaven_2" ]
+    opacity = 0.56000000238418579
+    padding = 6.0
+
+[brightness]
+minimum_brightness = 0.10000000000000001
 
 [[control_center.shortcuts]]
 type = "wifi"
@@ -38,7 +56,7 @@ type = "notification"
 
 [desktop_widgets]
 schema_version = 1
-widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-0000000000000001" ]
+widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002" ]
 
     [desktop_widgets.grid]
     cell_size = 8
@@ -46,10 +64,11 @@ widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-000000000000
     visible = true
 
     [desktop_widgets.widget.desktop-widget-0000000000000001]
-    box_height = 160.0
-    box_width = 376.0
-    cx = 244.0
-    cy = 736.0
+    box_height = 360.0
+    box_width = 224.0
+    cx = 168.0
+    cy = 672.0
+    enabled = false
     output = "eDP-1"
     rotation = 0.0
     type = "media_player"
@@ -61,35 +80,30 @@ widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-000000000000
         background_padding = 13.0
         background_radius = 11.0
         hide_when_no_media = true
-        layout = "horizontal"
+        layout = "vertical"
 
     [desktop_widgets.widget.desktop-widget-0000000000000002]
-    box_height = 440.0
-    box_width = 1056.0
-    cx = 528.0
-    cy = 88.0
-    flip_y = true
+    box_height = 280.0
+    box_width = 344.0
+    cx = 1348.0
+    cy = 156.0
+    enabled = false
     output = "eDP-1"
     rotation = 0.0
-    type = "audio_visualizer"
+    type = "clock"
 
         [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
-        aspect_ratio = 6.0
         background = false
-        background_opacity = 0.029999999999999999
-        background_padding = 0.0
-        background_radius = 0.0
-        bands = 32.0
-        centered = true
-        color_1 = "tertiary"
-        high_color = "error"
-        low_color = "primary"
-        mirrored = true
-        show_when_idle = false
+        circle = true
+        clock_style = "analog"
 
 [dock]
+background_opacity = 0.98999997787177563
 icon_size = 20
 launcher_position = "start"
+margin_edge = 9
+radius_top_right = 20
+reserve_space = false
 
 [lockscreen_widgets]
 enabled = false
@@ -116,16 +130,28 @@ enabled = true
 [osd]
 background_opacity = 0.99999997764825821
 lock_keys = false
-position = "bottom_right"
+position = "bottom_left"
 
     [osd.kinds]
     lock_keys = false
 
+[plugin_settings."noctalia/mpvpaper"]
+video_directory = "~/Pictures/Wallpapers/"
+
 [plugin_settings."noctalia/screen_recorder"]
 video_source = "portal"
 
+[plugin_settings."noctalia/wallhaven"]
+browser_placement = "floating"
+browser_position = "center"
+download_dir = "~/Pictures/Wallpapers"
+
+[plugin_settings."saverin/yinpaper"]
+video_directory = "~/Pictures/Wallpapers"
+yin_wallpaper_directory = "~/Pictures/Wallpapers"
+
 [plugins]
-enabled = [ "noctalia/screen_recorder", "noctalia/example" ]
+enabled = [ "noctalia/screen_recorder", "noctalia/example", "noctalia/wallhaven", "saverin/yinpaper" ]
 
     [[plugins.source]]
     kind = "git"
@@ -133,46 +159,110 @@ enabled = [ "noctalia/screen_recorder", "noctalia/example" ]
     name = "official"
 
     [[plugins.source]]
+    enabled = false
     kind = "git"
     location = "https://github.com/noctalia-dev/community-plugins"
     name = "community"
 
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/SaverinOnRails/noctalia-plugins"
+    name = "saverin"
+
+    [[plugins.source]]
+    kind = "path"
+    location = "~/Projects/noctalia-plugins"
+    name = "dev"
+
 [shell]
 avatar_path = "/home/noble/takavic.jpg"
-font_family = "CaskaydiaCove Nerd Font"
+font_family = "Cascadia Mono"
 polkit_agent = true
-settings_show_advanced = true
 ui_scale = 1.25
 
+    [shell.animation]
+    speed = 1.25
+
+    [shell.launcher]
+    app_grid = true
+
     [shell.panel]
-    control_center_placement = "centered"
-    session_placement = "centered"
+    control_center_placement = "floating"
+    control_center_position = "center"
+    session_placement = "floating"
+    transparency_mode = "soft"
+    wallpaper_placement = "floating"
+
+    [[shell.session.actions]]
+    action = "lock"
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    enabled = true
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
+    [[shell.session.actions]]
+    action = "command"
+    command = "systemctl hibernate"
+    enabled = true
+    glyph = "hibernate"
+    label = "Hibernate"
+    variant = "destructive"
 
 [theme]
 builtin = "Catppuccin"
-community_palette = "Cyberpunk"
+community_palette = "Ayu Green"
+custom_palette = "Ashen"
 mode = "dark"
-source = "community"
-wallpaper_scheme = "m3-tonal-spot"
+source = "custom"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "helix", "kitty", "niri", "qt" ]
     community_ids = [ "spicetify", "zed" ]
 
 [wallpaper]
-directory = "/home/noble/Pictures/Wallpapers"
+enabled = false
+fill_mode = "span"
 
     [wallpaper.default]
-    path = "/home/noble/Pictures/Wallpapers/wallhaven-4d8vzg.jpg"
+    path = "/home/noble/Pictures/Wallpapers/wallhaven-po7l8j.jpg"
 
     [wallpaper.last]
-    path = "/home/noble/Pictures/Wallpapers/wallhaven-4d8vzg.jpg"
+    path = "/home/noble/Pictures/Wallpapers/wallhaven-po7l8j.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/noble/Pictures/Wallpapers/wallhaven-4d8vzg.jpg"
+    path = "/home/noble/Pictures/Wallpapers/wallhaven-po7l8j.jpg"
+
+[widget.audio_visualizer]
+bands = 10
+width = 79
 
 [widget.battery]
-show_label = false
+hide_when_full = true
+hide_when_plugged = true
 
 [widget.brightness]
 show_label = false
@@ -180,8 +270,20 @@ show_label = false
 [widget.clock]
 format = "{:%H:%M - %d:%m}"
 
+[widget.date]
+format = "{:%H : %M}"
+
 [widget.hello]
 type = "noctalia/example:hello"
+
+[widget.mpvpaper]
+type = "noctalia/mpvpaper:mpvpaper"
+
+[widget.mpvpaper_2]
+type = "saverin/yinpaper:mpvpaper"
+
+[widget.mpvpaper_3]
+type = "saverin/yinpaper:mpvpaper"
 
 [widget.network]
 show_label = false
@@ -208,12 +310,21 @@ show_label = false
 stat = "ram_used"
 
 [widget.taskbar]
-group_by_workspace = true
 hide_empty_workspaces = true
-scale = 0.75
+scale = 0.85000000000000009
+show_window_title = true
 
 [widget.volume]
 show_label = false
 
+[widget.wallhaven]
+type = "noctalia/wallhaven:wallhaven"
+
+[widget.wallhaven_2]
+type = "noctalia/wallhaven:wallhaven"
+
 [widget.workspaces]
 hide_when_empty = true
+
+[widget.yinpaper]
+type = "saverin/yinpaper:yinpaper"

@@ -8,6 +8,7 @@ args = [
   "--ngProbeLocations",
   "/home/noble/.local/lib/node_modules",
 ]
+luau = { command = "luau-lsp", args = ["lsp","--definitions:@noctalia=/home/noble/Projects/noctalia-plugins/noctalia.d.luau"] }
 [language-server.zls]
 config.enable_argument_placeholders=false
 
@@ -90,3 +91,12 @@ language-servers = [ "zls" ]
 indent = { tab-width = 4, unit = "    " }
 formatter = { command = "zig" , args = ["fmt", "--stdin"] }
 
+
+
+[[language]]
+name = "rain"
+scope = "source.rain"
+file-types = ["rain"]
+comment-tokens = ["//", "///"]
+indent = { tab-width = 4, unit = "\t" }
+grammar="c-sharp"

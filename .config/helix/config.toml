@@ -14,7 +14,7 @@ hidden = false
 color-modes=false
 mouse=true
 # line-number="relative"
-gutters = ["diagnostics", "spacer", "diff"]
+# gutters = ["diagnostics", "spacer", "diff"]
 shell=["nu", "--stdin","-c"]
 
 [editor.statusline]

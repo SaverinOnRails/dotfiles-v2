@@ -14,8 +14,9 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-            // layout "us,ru"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+            layout "us"
+            variant "de_se_fi"
+            options "grp:alt_shift_toggle"
         }
         repeat-delay 300
         repeat-rate 50
@@ -89,7 +90,7 @@ output "eDP-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 10
+    gaps 0
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -97,7 +98,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "never"
+    center-focused-column "always"
 
     always-center-single-column
 
@@ -107,7 +108,7 @@ layout {
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
         proportion 0.5
-        proportion 0.97
+        proportion 0.99
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }
@@ -118,7 +119,7 @@ layout {
        proportion 1.0
     }
 
-    // background-color "transparent"
+    background-color "transparent"
     // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
@@ -238,7 +239,7 @@ layout {
 
 layer-rule {
     background-effect {
-        // blur false
+        blur false
     }
 }
 // Add lines like this to spawn processes at startup.
@@ -248,9 +249,13 @@ layer-rule {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
-// spawn-at-startup "yin"
 // spawn-at-startup "qs" "-c" "noctalia-shell"
+
 spawn-at-startup "noctalia"
+// spawn-sh-at-startup "mpvpaper -vs -o 'no-audio loop' eDP-1 ~/Pictures/Wallpapers/gojo.mp4"
+spawn-sh-at-startup "yin"
+spawn-sh-at-startup "sleep 0.3 ; yinctl --restore"
+
 //swww for overview
 // spawn-at-startup "xwayland-satellite"
 // spawn-at-startup "xrdb ~/.Xresources" //just so my avalonia apps work
@@ -366,17 +371,17 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
 
-    KP_END             { focus-workspace 1;}
-    KP_DOWN            { focus-workspace 2;}
-    KP_NEXT            { focus-workspace 3;}
-    KP_LEFT            { focus-workspace 4;}
-    KP_BEGIN           { focus-workspace 5;}
-    KP_RIGHT           { focus-workspace 6;}
-    KP_HOME            { focus-workspace 7;}
-    KP_UP              { focus-workspace 8;}
-    KP_PRIOR           { focus-workspace 9;}
+    // KP_END             { focus-workspace 1;}
+    // KP_DOWN            { focus-workspace 2;}
+    // KP_NEXT            { focus-workspace 3;}
+    // KP_LEFT            { focus-workspace 4;}
+    // KP_BEGIN           { focus-workspace 5;}
+    // KP_RIGHT           { focus-workspace 6;}
+    // KP_HOME            { focus-workspace 7;}
+    // KP_UP              { focus-workspace 8;}
+    // KP_PRIOR           { focus-workspace 9;}
 
-    KP_INSERT {  toggle-overview; }
+    KP_ENTER {  toggle-overview; }
 
     // Mod+1 { focus-column 1;}
     // Mod+2 { focus-column 2;}
@@ -415,14 +420,14 @@ binds {
     xf86audioprev { spawn "noctalia" "msg" "media" "previous"; }
     xf86audionext { spawn "noctalia" "msg" "media" "next"; }
     Super+T {spawn "thunar";}
-    Mod+Shift+Q { close-window; }
+    Mod+Q { close-window; }
     // XF86MonBrightnessUp { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
     // XF86MonBrightnessDown { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
     XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up"; }
     XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
     Super+Shift+P { spawn  "/home/noble/.config/hypr/scripts/choose_accent.sh" ;}
     Mod+Left  { focus-column-left; }
-    Mod+Q{ focus-column-left; }
+    Mod+W{ focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
@@ -606,7 +611,7 @@ binds {
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    Mod+W { toggle-column-tabbed-display; }
+    // Mod+W { toggle-column-tabbed-display; }
 
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have
@@ -638,6 +643,7 @@ binds {
 environment {
     QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME  "qt6ct"
+    
 }
 
 hotkey-overlay {
@@ -647,6 +653,10 @@ hotkey-overlay {
 layer-rule {
   match namespace="^noctalia-backdrop"
   place-within-backdrop true
+}
+layer-rule {
+  match namespace="yin-wallpaper"
+  // place-within-backdrop true
 }
 
 window-rule {
@@ -668,6 +678,10 @@ window-rule {
 window-rule {
     match app-id="xdg-desktop-portal-gtk"
     open-floating true
+}
+window-rule {
+    match app-id="VirtualBox Machine"
+    default-column-width { proportion 1.0; }
 }
 window-rule {
     draw-border-with-background false
