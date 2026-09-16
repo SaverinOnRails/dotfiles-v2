@@ -108,7 +108,7 @@ layout {
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
         proportion 0.5
-        proportion 0.99
+        proportion 1.0
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }
@@ -381,7 +381,7 @@ binds {
     // KP_UP              { focus-workspace 8;}
     // KP_PRIOR           { focus-workspace 9;}
 
-    KP_ENTER {  toggle-overview; }
+    KP_INSERT {  toggle-overview; }
 
     // Mod+1 { focus-column 1;}
     // Mod+2 { focus-column 2;}
@@ -643,6 +643,7 @@ binds {
 environment {
     QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME  "qt6ct"
+    GTK_CSD "true"
     
 }
 
@@ -651,12 +652,12 @@ hotkey-overlay {
 } 
 
 layer-rule {
-  match namespace="^noctalia-backdrop"
-  place-within-backdrop true
+  // match namespace="^noctalia-backdrop"
+  // place-within-backdrop true
 }
 layer-rule {
   match namespace="yin-wallpaper"
-  // place-within-backdrop true
+  place-within-backdrop true
 }
 
 window-rule {

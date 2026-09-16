@@ -19,9 +19,9 @@ shell=["nu", "--stdin","-c"]
 
 [editor.statusline]
 separator="|"
-mode.normal="NORMAL"
-mode.insert="INSERT"
-mode.select="VISUAL"
+mode.normal="NOR"
+mode.insert="INS"
+mode.select="VIS"
 # right = [ "diagnostics", "position","file-name"]
 # center=[]
 # left=[]

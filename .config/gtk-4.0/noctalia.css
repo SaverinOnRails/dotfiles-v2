@@ -44,6 +44,10 @@
 @define-color secondary_sidebar_bg_color #121212;
 @define-color secondary_sidebar_fg_color #b4b4b4;
 
+/* Focused selection states */
+@define-color theme_selected_bg_color @accent_bg_color;
+@define-color theme_selected_fg_color @accent_fg_color;
+
 /* Backdrop/unfocused states */
 @define-color theme_unfocused_fg_color @window_fg_color;
 @define-color theme_unfocused_text_color @view_fg_color;
@@ -91,12 +95,12 @@
     --sidebar-backdrop-color: @window_bg_color;
     --sidebar-border-color: @window_bg_color;
 
-    --warning-bg-color: #3d0f0f;
+    --warning-bg-color: #3b1212;
     --warning-fg-color: #f1dada;
     --warning-color: #b14242;
 
     --success-color: #4a8b8b;
-    --success-bg-color: #153838;
+    --success-bg-color: #173636;
     --success-fg-color: #deeded;
     
     --shade-color: rgba(0, 0, 0, 0.36);

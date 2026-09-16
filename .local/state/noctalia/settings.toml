@@ -1,4 +1,4 @@
-config_version = 2
+config_version = 14
 
 [accessibility]
 ui_scale = 1.2500000111758709
@@ -9,27 +9,29 @@ enable_sounds = true
 sound_volume = 0.99999997764825821
 
 [backdrop]
-blur_intensity = 0.069999998435378075
-enabled = true
-tint_intensity = 0.71999998390674591
+blur_intensity = 0.0
+tint_intensity = 0.0
 
 [bar.default]
-background_opacity = 0.9499999787658453
+background_opacity = 0.86999998055398464
 capsule_opacity = 0.5599999874830246
 center = [ "taskbar" ]
-end = [ "tray", "network", "battery", "date", "group:g1" ]
+end = [ "network", "battery", "workspaces" ]
 font_weight = 380
 margin_edge = 0
 margin_ends = 0
-padding = 0
 position = "bottom"
 radius = 0
-scale = 1.300000011920929
-start = [ "workspaces" ]
-widget_spacing = 5
+scale = 1.2500000111758709
+shadow = false
+start = [ "group:g1", "date", "s", "media" ]
+thickness = 40
+widget_spacing = 8
 
     [[bar.default.capsule_group]]
-    enabled = true
+    accordion = false
+    accordion_direction = "end"
+    enabled = false
     fill = "surface_variant"
     id = "g1"
     members = [ "yinpaper", "wallhaven_2" ]
@@ -56,7 +58,7 @@ type = "notification"
 
 [desktop_widgets]
 schema_version = 1
-widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002" ]
+widget_order = [ "desktop-widget-0000000000000001" ]
 
     [desktop_widgets.grid]
     cell_size = 8
@@ -70,6 +72,8 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
     cy = 672.0
     enabled = false
     output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
     rotation = 0.0
     type = "media_player"
 
@@ -82,21 +86,6 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
         hide_when_no_media = true
         layout = "vertical"
 
-    [desktop_widgets.widget.desktop-widget-0000000000000002]
-    box_height = 280.0
-    box_width = 344.0
-    cx = 1348.0
-    cy = 156.0
-    enabled = false
-    output = "eDP-1"
-    rotation = 0.0
-    type = "clock"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
-        background = false
-        circle = true
-        clock_style = "analog"
-
 [dock]
 background_opacity = 0.98999997787177563
 icon_size = 20
@@ -105,32 +94,74 @@ margin_edge = 9
 radius_top_right = 20
 reserve_space = false
 
+[lockscreen]
+blurred_desktop = true
+
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-login-box@WAYLAND-1", "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 0.0
-    box_width = 0.0
-    cx = 768.0
-    cy = 741.0
-    output = "eDP-1"
+    [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1"]
+    box_height = 196.0
+    box_width = 608.0
+    cx = 320.0
+    cy = 178.0
+    output = "WAYLAND-1"
+    placement_height = 360.0
+    placement_width = 640.0
     rotation = 0.0
     type = "login_box"
 
+        [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 768.0
+    cy = 741.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        center_password_text = false
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
 [nightlight]
-enabled = true
+force = true
 
 [osd]
 background_opacity = 0.99999997764825821
 lock_keys = false
-position = "bottom_left"
 
     [osd.kinds]
     lock_keys = false
@@ -147,6 +178,8 @@ browser_position = "center"
 download_dir = "~/Pictures/Wallpapers"
 
 [plugin_settings."saverin/yinpaper"]
+picker_placement = "floating"
+picker_position = "center"
 video_directory = "~/Pictures/Wallpapers"
 yin_wallpaper_directory = "~/Pictures/Wallpapers"
 
@@ -176,7 +209,9 @@ enabled = [ "noctalia/screen_recorder", "noctalia/example", "noctalia/wallhaven"
 
 [shell]
 avatar_path = "/home/noble/takavic.jpg"
-font_family = "Cascadia Mono"
+corner_radius_scale = 0.0
+font_family = "Cascadia Code NF"
+lang = "en"
 polkit_agent = true
 ui_scale = 1.25
 
@@ -184,41 +219,47 @@ ui_scale = 1.25
     speed = 1.25
 
     [shell.launcher]
-    app_grid = true
+    compact = true
 
     [shell.panel]
     control_center_placement = "floating"
     control_center_position = "center"
+    launcher_placement = "attached"
     session_placement = "floating"
     transparency_mode = "soft"
     wallpaper_placement = "floating"
 
     [[shell.session.actions]]
     action = "lock"
+    countdown_seconds = 0.0
     enabled = true
     shortcut = "1"
     variant = "default"
 
     [[shell.session.actions]]
     action = "logout"
+    countdown_seconds = 0.0
     enabled = true
     shortcut = "2"
     variant = "default"
 
     [[shell.session.actions]]
     action = "lock_and_suspend"
+    countdown_seconds = 0.0
     enabled = true
     shortcut = "3"
     variant = "default"
 
     [[shell.session.actions]]
     action = "reboot"
+    countdown_seconds = 0.0
     enabled = true
     shortcut = "4"
     variant = "default"
 
     [[shell.session.actions]]
     action = "shutdown"
+    countdown_seconds = 0.0
     enabled = true
     shortcut = "5"
     variant = "destructive"
@@ -226,18 +267,19 @@ ui_scale = 1.25
     [[shell.session.actions]]
     action = "command"
     command = "systemctl hibernate"
+    countdown_seconds = 0.0
     enabled = true
     glyph = "hibernate"
     label = "Hibernate"
     variant = "destructive"
 
 [theme]
-builtin = "Catppuccin"
-community_palette = "Ayu Green"
+builtin = "Rosé Pine"
+community_palette = "Heartbox"
 custom_palette = "Ashen"
-mode = "dark"
+shell_mode = "dark"
 source = "custom"
-wallpaper_scheme = "m3-content"
+wallpaper_scheme = "m3-rainbow"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "helix", "kitty", "niri", "qt" ]
@@ -288,12 +330,6 @@ type = "saverin/yinpaper:mpvpaper"
 [widget.network]
 show_label = false
 
-[widget.nirilogo]
-font_weight = 100
-glyph = "niri"
-scale = 1.1000000000000001
-type = "custom_button"
-
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
 
@@ -306,13 +342,14 @@ type = "scripted"
 video_source = "portal"
 
 [widget.sysmon]
-show_label = false
+show_value = false
 stat = "ram_used"
 
 [widget.taskbar]
+group_single_icon_per_app = true
 hide_empty_workspaces = true
-scale = 0.85000000000000009
-show_window_title = true
+inactive_opacity = 0.96999999999999997
+scale = 1.05
 
 [widget.volume]
 show_label = false
@@ -324,7 +361,22 @@ type = "noctalia/wallhaven:wallhaven"
 type = "noctalia/wallhaven:wallhaven"
 
 [widget.workspaces]
-hide_when_empty = true
+"" = 5
+font_weight = 800
+max_label_chars = 19
+scale = 1.05
+style = "minimal"
+use_custom_workspace_ids = true
+workspace_10_id = "X"
+workspace_1_id = "I"
+workspace_2_id = "II"
+workspace_3_id = "III"
+workspace_4_id = "IV"
+workspace_5_id = "V"
+workspace_6_id = "VI"
+workspace_7_id = "VII"
+workspace_8_id = "VIII"
+workspace_9_id = "IX"
 
 [widget.yinpaper]
 type = "saverin/yinpaper:yinpaper"
