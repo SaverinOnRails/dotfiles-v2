@@ -3,12 +3,14 @@ source ~/.zoxide.nu
 source ~/.config/nushell/gen-vivaldi-theme.nu
 
 $env.config.show_banner = false
-$env.config.buffer_editor = "helix"
+$env.config.buffer_editor = "hx"
 $env.PKG_CONFIG_PATH = "/usr/lib/pkgconfig/"
 $env.npm_config_prefix = $"($env.HOME)/.local"
 # $env.config.edit_mode = "vi"
 alias btm = btm --basic --process_memory_as_value
 $env.PATH ++= ["~/.spicetify","~/.local/bin","/var/lib/snapd/snap/bin","/var/lib/snapd/desktop", "/home/noble/.dotnet/tools" , "/home/noble/.local/share/pipx/venvs", "/home/noble/Android/Sdk/build-tools/36.0.0", "/opt/cuda/bin/"]
+
+# $env.PATH = ($env.PATH | prepend  '/home/noble/.dotnet-latest')
 $env.ANDROID_HOME = "/home/noble/Android/Sdk"
 # $env.config.table.mode = "ascii_rounded"
 $env.wap = $"($env.HOME)/Pictures/wallpapers"
@@ -25,13 +27,13 @@ $env.config.color_config.shape_custom = "red"
 
 alias ls = ls -a
 alias xplore = explore 
-alias hx = helix
 alias yeet = yay -R
 alias yain = yay -S 
 alias gco = git checkout
 alias pacupg = sudo pacman -Syu
 alias rm = rm -rf
 alias ff = fastfetch
+alias dotnet-latest = /home/noble/.dotnet/dotnet
 # alias zig = /home/noble/.local/share/zig/zig
 
 def lsx [] {

@@ -43,8 +43,8 @@ input {
     mouse {
         // off
         // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-speed -0.1
+        accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
@@ -90,7 +90,7 @@ output "eDP-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 0
+    gaps 5
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -98,7 +98,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "always"
+    center-focused-column "on-overflow"
 
     always-center-single-column
 
@@ -108,7 +108,7 @@ layout {
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
         proportion 0.5
-        proportion 0.99
+        proportion 1.0
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }
@@ -135,7 +135,6 @@ layout {
     //
     // Alternatively, you can override it with a window rule called
     // `draw-border-with-background`.
-
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
@@ -314,6 +313,11 @@ window-rule {
     opacity 0.99
 }
 
+// window-rule {
+//     match app-id="SekaniUI"
+//     opacity 0.9
+// }
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -381,7 +385,7 @@ binds {
     // KP_UP              { focus-workspace 8;}
     // KP_PRIOR           { focus-workspace 9;}
 
-    KP_ENTER {  toggle-overview; }
+    KP_INSERT {  toggle-overview; }
 
     // Mod+1 { focus-column 1;}
     // Mod+2 { focus-column 2;}
@@ -643,6 +647,7 @@ binds {
 environment {
     QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME  "qt6ct"
+    GTK_CSD "true"
     
 }
 
@@ -651,12 +656,12 @@ hotkey-overlay {
 } 
 
 layer-rule {
-  match namespace="^noctalia-backdrop"
-  place-within-backdrop true
+  // match namespace="^noctalia-backdrop"
+  // place-within-backdrop true
 }
 layer-rule {
   match namespace="yin-wallpaper"
-  // place-within-backdrop true
+  place-within-backdrop true
 }
 
 window-rule {
@@ -705,6 +710,11 @@ window-rule {
 window-rule {
     match app-id="Wff"
     open-floating true
+}
+
+window-rule {
+    // geometry-corner-radius 15
+    // clip-to-geometry true
 }
 recent-windows {
   previews {

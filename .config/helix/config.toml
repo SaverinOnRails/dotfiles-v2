@@ -1,4 +1,4 @@
-theme="noctalia"
+theme="ashen"
 [editor.soft-wrap]
 enable=true
 
@@ -19,9 +19,9 @@ shell=["nu", "--stdin","-c"]
 
 [editor.statusline]
 separator="|"
-mode.normal="NORMAL"
-mode.insert="INSERT"
-mode.select="VISUAL"
+mode.normal="NOR"
+mode.insert="INS"
+mode.select="VIS"
 # right = [ "diagnostics", "position","file-name"]
 # center=[]
 # left=[]
@@ -30,7 +30,7 @@ mode.select="VISUAL"
 
 
 [editor.lsp]
-display-inlay-hints = true
+display-inlay-hints = false
 auto-signature-help = false
 
 [editor.inline-diagnostics]

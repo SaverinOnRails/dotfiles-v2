@@ -15,7 +15,7 @@ config.enable_argument_placeholders=false
 
 [language-server]
 yuckls = {command="yuckls"}
-ols = {command = "/home/noble/Documents/ols/ols"}
+# ols = {command = "/home/noble/Documents/ols/ols"}
 avalonials = {command="avalonia-ls"}
 omnisharp={"command"="omnisharp" , timeout=200000}
 qmlls={"command"="/usr/lib/qt6/bin/qmlls", timeout=20000}
@@ -43,11 +43,11 @@ name = "c-sharp"
 scope = "source.csharp"
 injection-regex = "c-?sharp"
 file-types = ["cs", "csx", "cake"]
-roots = ["sln", "csproj"]
-comment-token = "//"
+roots = ["*.slnx", "*.sln", "*.csproj"]
+comment-tokens = ["//", "///"]
 block-comment-tokens = { start = "/*", end = "*/" }
 indent = { tab-width = 4, unit = "\t" }
-language-servers = ["omnisharp"]
+language-servers = [ "roslyn-language-server"]
 
 
 [[language]]
@@ -100,3 +100,26 @@ file-types = ["rain"]
 comment-tokens = ["//", "///"]
 indent = { tab-width = 4, unit = "\t" }
 grammar="c-sharp"
+
+[[language]]
+name = "jai"
+scope = "source.jai"
+file-types = ["jai"]
+roots = ["build.jai", "first.jai", "main.jai"]
+shebangs = ["jai", "jai-linux", "jai-macos"]
+indent = { tab-width = 4, unit = " " }
+grammar = "jai"
+auto-format = false
+comment-tokens = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+
+[[grammar]]
+name = "jai"
+source = { git = "https://github.com/constantitus/tree-sitter-jai", rev="889f8b310fa005c668853ba40a1c6cfc060b1a8b" }
