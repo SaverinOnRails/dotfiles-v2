@@ -423,7 +423,7 @@ binds {
     xf86AudioPlay  { spawn "noctalia" "msg" "media" "toggle"; }
     xf86audioprev { spawn "noctalia" "msg" "media" "previous"; }
     xf86audionext { spawn "noctalia" "msg" "media" "next"; }
-    Super+T {spawn "thunar";}
+    Super+T {spawn "luciole";}
     Mod+Q { close-window; }
     // XF86MonBrightnessUp { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
     // XF86MonBrightnessDown { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }

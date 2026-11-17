@@ -1,0 +1,6 @@
+schema_version = 1
+
+[browser]
+always_show_tab_bar = false
+background_opacity = 0.87
+corner_radius_scale = 1.5

@@ -337,7 +337,7 @@ source = "community"
 wallpaper_scheme = "m3-fruit-salad"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "ghostty", "helix", "kitty", "niri", "qt", "umbriel" ]
+    builtin_ids = [ "gtk3", "gtk4", "ghostty", "helix", "kitty", "luciole", "niri", "qt", "umbriel" ]
     community_ids = [ "antigravity", "spicetify", "zed" ]
 
 [wallpaper]
